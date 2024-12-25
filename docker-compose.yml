@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  mysql:
+    image: mariadb:10.8.3
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      # MYSQL_DATABASE: task_list_db # Optional: specify a default database
+    ports:
+      - 3307:3306 # Maps container's port 3306 to host's port 3307
+
+  adminer:
+    image: adminer
+    restart: always
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql # Sets default server to the MySQL service name
+    ports:
+      - 8080:8080 # Maps container's port 8080 to host's port 8080
+
+networks:
+  default:
+    name: task_list_network
