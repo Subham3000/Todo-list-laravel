@@ -7,25 +7,25 @@ Hello World!
 </h1> --}}
 
 @section('content')
-<div>
-    {{-- @if ($tasks)
+    <div>
+        {{-- @if ($tasks)
         {{-- <b>Tasks exits!</b> --}}
         {{-- @foreach ($tasks as $task) --}}
-            {{-- <br> --}}
-                {{-- <b>{{$task->title}}</b> --}}
-            {{-- <br>     --}}
+        {{-- <br> --}}
+        {{-- <b>{{$task->title}}</b> --}}
+        {{-- <br>     --}}
         {{-- @endforeach --}}
-    {{-- @else --}}
+        {{-- @else --}}
         {{-- <b>Tasks doest not exits!</b>    --}}
-    {{-- @endif --}}
-    
-    @forelse ($tasks as $task)
-        <div>
-            <a href="{{route('task.show', ['id' => $task->id])}}">{{$task->title}}</a>
-        </div>
-    @empty
-        <div>There are no Tasks!</div>
-    @endforelse
+        {{-- @endif --}}
+
+        @forelse ($tasks as $task)
+            <div>
+                <a href="{{ route('task.show', ['id' => $task->id]) }}">{{ $task->title }}</a>
+            </div>
+        @empty
+            <div>There are no Tasks!</div>
+        @endforelse
     </div>
-        
+
 @endsection

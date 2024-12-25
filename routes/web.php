@@ -72,6 +72,7 @@ Route::get('/task', function () {
     ]);
 })->name('task.index');
 
+Route::view('/task/create', 'create')->name('task.create');
 
 Route::get('/task/{id}', function($id){
 
@@ -79,6 +80,9 @@ Route::get('/task/{id}', function($id){
   
 })->name('task.show');
 
+Route::post('/tasks', function(){
+  dd('We are in the store route');
+})->name('task.store');
 
 
 // Route::get('/task/{id}', function($id) use ($tasks) {
